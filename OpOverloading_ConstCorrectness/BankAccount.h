@@ -9,12 +9,17 @@ class Transaction;
 class BankAccount
 {
 public:
+    BankAccount(float balance = 0, Transaction transaction = NULL);
+    
     friend std::ostream& operator<< (std::ostream& os, const BankAccount& s);
 
-    float CurrentBalance;
 
-    BankAccount operator+ (const Transaction& transactionToAdd) const;
-    BankAccount operator- (const Transaction& transactionToAdd) const;
+    BankAccount operator+= (const Transaction& transactionToAdd);
+    BankAccount operator-= (const Transaction& transactionToAdd);
+
+    float GetCurrentBalance() const;
+    std::vector<Transaction> GetTransactionHistory() const;
 private:
+    float CurrentBalance;
     std::vector<Transaction> TransactionHistory;
 };

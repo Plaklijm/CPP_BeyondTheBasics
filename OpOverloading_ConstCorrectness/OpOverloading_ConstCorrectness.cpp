@@ -19,14 +19,9 @@ int main(int argc, char* argv[])
     het saldo, en de historie van de volledige transacties geeft (dus niet alleen de eindresultaten!)
     */
 
-    BankAccount account;
-
-    Transaction* transaction = new Transaction(10, time(0));
-
-    for (int i = 0; i < 10; i++)
-    {
-        account.CurrentBalance = i + 3;
-    }
+    BankAccount account = BankAccount();
+    Transaction transaction = (100);
+    account += transaction;
 
     std::cout << account << std::endl;
     

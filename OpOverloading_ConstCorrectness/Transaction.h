@@ -4,11 +4,16 @@
 
 class Transaction
 {
-    // (bij/afschrijving, hoeveelheid, datum)
 public:
     Transaction(float amount);
-    std::string get_current_time_and_date();
 
+    float GetTransactionAmount() const;
+    
+    std::chrono::year_month_day GetTransactionDate() const;
+private:
     float amount;
-    time_t dateTime;
+    std::chrono::year_month_day dateTime;
+
+private:
+    std::chrono::year_month_day GetCurrentDate() const;
 };
