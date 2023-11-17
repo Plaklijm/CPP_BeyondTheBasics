@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ctime>
 
 #include "BankAccount.h"
 
@@ -18,10 +17,13 @@ int main(int argc, char* argv[])
 
     het saldo, en de historie van de volledige transacties geeft (dus niet alleen de eindresultaten!)
     */
-
+    
     BankAccount account = BankAccount();
-    Transaction transaction = (100);
-    account += transaction;
+    for (int i = 0; i < 15; i++)
+    {
+        Transaction* transaction = new Transaction(100);
+        account += transaction;
+    }
 
     std::cout << account << std::endl;
     

@@ -1,8 +1,5 @@
 ﻿#include "Transaction.h"
 
-#include <iomanip>
-#include <iostream>
-#include <sstream>
 #include <chrono>
 #include <format>
 
@@ -17,18 +14,19 @@ float Transaction::GetTransactionAmount() const
     return amount;
 }
 
-std::chrono::year_month_day Transaction::GetTransactionDate() const
+std::string Transaction::GetTransactionDate() const
 {
     return dateTime;
 }
 
-std::chrono::year_month_day Transaction::GetCurrentDate() const
+std::string Transaction::GetCurrentDate() const
 {
-    // Gets the current time with the Chrono libraru; Only returns the date, so not the time
-    const std::chrono::time_point now{std::chrono::system_clock::now()};
-    
-    const std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
+    // Gets the current datetime with the Chrono libraru
+    const std::chrono::time_point now{std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now())};
 
-    // TODO: also implement the time that the transaction occured
-    return ymd;
+    
+    // Format it into a string object so it can be returned and printed easily 
+    std::string s = std::format("{:%Y-%m-%d UTC:%H:%M:%S}", now);
+    
+    return s;
 }

@@ -2,17 +2,17 @@
 
 #include <iostream>
 
-BankAccount::BankAccount(float balance, Transaction transaction)
+BankAccount::BankAccount(float balance, std::string date, float amount)
 {
     this->CurrentBalance = balance;
-    this->TransactionHistory.push_back(transaction);
+    this->TransactionHistory.push_back(&transaction);
 }
 
 std::ostream& operator<< (std::ostream& os, const BankAccount& s)
 {
-    for (const auto transaction : s.TransactionHistory)
+    for (int i = 0; i < transactionCount; i++)
     {
-        std::cout << "eur:" << transaction.amount << " | date: " << transaction.GetCurrentDate() << std::endl; 
+        std::cout << "eur:" << transaction->GetTransactionAmount() << " | datetime: " << transaction->GetTransactionDate() << std::endl; 
     }
     
     std::cout << "Current balance: " << s.CurrentBalance << std::endl;
@@ -22,12 +22,20 @@ std::ostream& operator<< (std::ostream& os, const BankAccount& s)
 
 BankAccount BankAccount::operator+=(const Transaction& transactionToAdd)
 {
-    return BankAccount(CurrentBalance += transactionToAdd.amount, transactionToAdd);
+    transactionCount++;
+    TransactionDateHistory.push_back(transactionToAdd.GetTransactionDate());
+    TransactionAmountHistory.push_back(transactionToAdd.GetTransactionAmount());
+    
+    return BankAccount(CurrentBalance += transactionToAdd.GetTransactionAmount());
 }
 
 BankAccount BankAccount::operator-=(const Transaction& transactionToAdd)
 {
-    return BankAccount(CurrentBalance -= transactionToAdd.amount, transactionToAdd);
+    transactionCount++;
+    TransactionDateHistory.push_back(transactionToAdd.GetTransactionDate());
+    TransactionAmountHistory.push_back(transactionToAdd.GetTransactionAmount());
+    
+    return BankAccount(CurrentBalance -= transactionToAdd.GetTransactionAmount());
 }
 
 float BankAccount::GetCurrentBalance() const
@@ -35,7 +43,7 @@ float BankAccount::GetCurrentBalance() const
     return CurrentBalance;
 }
 
-std::vector<Transaction> BankAccount::GetTransactionHistory() const
+std::vector<Transaction*> BankAccount::GetTransactionHistory() const
 {
     return TransactionHistory;
 }

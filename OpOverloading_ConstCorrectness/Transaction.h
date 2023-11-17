@@ -8,12 +8,13 @@ public:
     Transaction(float amount);
 
     float GetTransactionAmount() const;
-    
-    std::chrono::year_month_day GetTransactionDate() const;
+
+    std::string GetTransactionDate() const;
 private:
     float amount;
-    std::chrono::year_month_day dateTime;
+
+    std::string dateTime;
 
 private:
-    std::chrono::year_month_day GetCurrentDate() const;
+    std::string GetCurrentDate() const;
 };

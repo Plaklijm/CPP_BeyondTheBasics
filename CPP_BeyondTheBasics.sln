@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpOverloading_ConstCorrectness", "OpOverloading_ConstCorrectness\OpOverloading_ConstCorrectness.vcxproj", "{90A8D1C5-107F-4B47-B663-DE7324D1598E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Orc_Elf_WithRoles", "Orc_Elf_WithRoles\Orc_Elf_WithRoles.vcxproj", "{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Templates", "Templates\Templates.vcxproj", "{0F273540-4055-48FA-AC37-682522916C5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -18,5 +22,21 @@ Global
 		{90A8D1C5-107F-4B47-B663-DE7324D1598E}.Release|Win32.Build.0 = Release|Win32
 		{90A8D1C5-107F-4B47-B663-DE7324D1598E}.Release|x64.ActiveCfg = Release|x64
 		{90A8D1C5-107F-4B47-B663-DE7324D1598E}.Release|x64.Build.0 = Release|x64
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Debug|Win32.Build.0 = Debug|Win32
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Debug|x64.ActiveCfg = Debug|x64
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Debug|x64.Build.0 = Debug|x64
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Release|Win32.ActiveCfg = Release|Win32
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Release|Win32.Build.0 = Release|Win32
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Release|x64.ActiveCfg = Release|x64
+		{92C68687-1E1A-4CC5-B7CC-96FE2D1A52DC}.Release|x64.Build.0 = Release|x64
+		{0F273540-4055-48FA-AC37-682522916C5F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0F273540-4055-48FA-AC37-682522916C5F}.Debug|Win32.Build.0 = Debug|Win32
+		{0F273540-4055-48FA-AC37-682522916C5F}.Debug|x64.ActiveCfg = Debug|x64
+		{0F273540-4055-48FA-AC37-682522916C5F}.Debug|x64.Build.0 = Debug|x64
+		{0F273540-4055-48FA-AC37-682522916C5F}.Release|Win32.ActiveCfg = Release|Win32
+		{0F273540-4055-48FA-AC37-682522916C5F}.Release|Win32.Build.0 = Release|Win32
+		{0F273540-4055-48FA-AC37-682522916C5F}.Release|x64.ActiveCfg = Release|x64
+		{0F273540-4055-48FA-AC37-682522916C5F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 EndGlobal
