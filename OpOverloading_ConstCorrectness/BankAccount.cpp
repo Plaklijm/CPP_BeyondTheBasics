@@ -5,14 +5,15 @@
 BankAccount::BankAccount(float balance, std::string date, float amount)
 {
     this->CurrentBalance = balance;
-    this->TransactionHistory.push_back(&transaction);
 }
 
 std::ostream& operator<< (std::ostream& os, const BankAccount& s)
 {
-    for (int i = 0; i < transactionCount; i++)
+    // ostream function to log every transaction that happened
+    for (int i = 0; i < s.transactionAmount; i++)
     {
-        std::cout << "eur:" << transaction->GetTransactionAmount() << " | datetime: " << transaction->GetTransactionDate() << std::endl; 
+        std::cout << "eur:" << s.TransactionTypeHistory[i] << s.TransactionAmountHistory[i]
+            << " | datetime: " << s.TransactionDateHistory[i] << std::endl; 
     }
     
     std::cout << "Current balance: " << s.CurrentBalance << std::endl;
@@ -22,28 +23,25 @@ std::ostream& operator<< (std::ostream& os, const BankAccount& s)
 
 BankAccount BankAccount::operator+=(const Transaction& transactionToAdd)
 {
-    transactionCount++;
+    // Add transaction
+    transactionAmount++;
     TransactionDateHistory.push_back(transactionToAdd.GetTransactionDate());
     TransactionAmountHistory.push_back(transactionToAdd.GetTransactionAmount());
-    
+    TransactionTypeHistory.push_back('+');
     return BankAccount(CurrentBalance += transactionToAdd.GetTransactionAmount());
 }
 
 BankAccount BankAccount::operator-=(const Transaction& transactionToAdd)
 {
-    transactionCount++;
+    // Add a negative transaction
+    transactionAmount++;
     TransactionDateHistory.push_back(transactionToAdd.GetTransactionDate());
     TransactionAmountHistory.push_back(transactionToAdd.GetTransactionAmount());
-    
+    TransactionTypeHistory.push_back('-');
     return BankAccount(CurrentBalance -= transactionToAdd.GetTransactionAmount());
 }
 
 float BankAccount::GetCurrentBalance() const
 {
     return CurrentBalance;
-}
-
-std::vector<Transaction*> BankAccount::GetTransactionHistory() const
-{
-    return TransactionHistory;
 }
