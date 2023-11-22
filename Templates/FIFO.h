@@ -14,7 +14,7 @@ public:
         elements.push_back(elementToAdd);
         std::cout << "pushed " << elementToAdd << " at the back" << std::endl;
     }
-
+    
     /**
     * \brief Gets the first T element of the queue 
     */
@@ -43,7 +43,7 @@ public:
     void clear_queue()
     {
         elements.clear();
-        std::cout << "queue cleared" << std::endl;
+        std::cout << "queue cleared | current size: " << elements.size() << std::endl;
     }
 
 private:
